@@ -19,9 +19,15 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <div className="p-2 border-b border-slate-600">
+    <div className="p-2 mb-2 border-b border-slate-600">
       {navLinks.map(({ id, label, path }: NavLink) => (
-        <Link key={id} href={path} className="mr-2">
+        <Link
+          key={id}
+          href={path}
+          className={`mr-2 ${
+            pathname === path ? "font-bold text-purple-600" : ""
+          }`}
+        >
           {label}
         </Link>
       ))}
